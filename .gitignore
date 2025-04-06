@@ -1,2 +1,4 @@
 __pycache__
-utils
+utils\__pycache__\fertilizer.py
+utils\__pycache__\disease.py
+utils\__pycache__\model.py
