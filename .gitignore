@@ -1,4 +1,8 @@
 __pycache__
-utils\__pycache__\fertilizer.py
-utils\__pycache__\disease.py
-utils\__pycache__\model.py
+utils\fertilizer.py
+utils\disease.py
+utils\model.py
+
+utils\__pycache__\fertilizer.cpython-39.pyc
+utils\__pycache__\disease.cpython-39.pyc
+utils\__pycache__\model.cpython-39.pyc
