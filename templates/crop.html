@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block title %} Crop {% endblock title %} {% block body %}
+{% extends 'base.html' %} 
+{% block title %} Crop {% endblock title %} 
+{% block body %}
 
 <!doctype html>
 <html lang="en">
@@ -71,16 +73,43 @@
             width: 100%;
             height: 500px !important;
         }
+
+        .form-label {
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .form-control {
+            font-weight: bold;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+            font-size: 18px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
 
     <!--About us section-->
-    <div class="hero-image ">
+    <div class="hero-image">
         <div class="hero-text">
-            <p class="breadcrumbs text-white font-weight-bold"><span class="mr-2"><a href="{{ url_for('hello_world') }}"
-                        class="text-white">Home /</a></span>
+            <p class="breadcrumbs text-white font-weight-bold">
+                <span class="mr-2">
+                    <a href="{{ url_for('hello_world') }}" class="text-white">Home /</a>
+                </span>
                 <span>Crop-recommend</span>
             </p>
             <h1 class="mb-0 bread font-weight-bold">Find out the most suitable crop to grow in your farm</h1>
@@ -91,11 +120,11 @@
     <!-- second nav -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav mx-auto">
-                <a class="nav-item nav-link active" href="{{ url_for('dashboard') }}">Dashboard  <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="{{ url_for('dashboard') }}">Dashboard <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="{{ url_for('crop_recommend') }}">Crop</a>
                 <a class="nav-item nav-link" href="{{ url_for('fertilizer_recommendation') }}">Fertilizer</a>
                 <a class="nav-item nav-link" href="{{ url_for('disease_prediction') }}">Disease</a>
@@ -107,60 +136,54 @@
     <div class="container p-4 backgr-image">
         <form class="text-uppercase font-weight-bold" method="POST" action="{{ url_for('crop_prediction') }}">
             <div class="form-group">
-                <label for="exampleInputEmail1">Nitrogen</label>
-                <input type="number" class="form-control" name="nitrogen" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the value">
+                <label for="nitrogen" class="form-label">Nitrogen</label>
+                <input type="number" class="form-control" name="nitrogen" id="nitrogen" placeholder="Enter the value">
             </div>
 
             <div class="form-group">
-                <label for="exampleInputEmail1">Phosphorous</label>
-                <input type="number" class="form-control" name="phosphorous" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the value">
+                <label for="phosphorous" class="form-label">Phosphorous</label>
+                <input type="number" class="form-control" name="phosphorous" id="phosphorous" placeholder="Enter the value">
             </div>
 
             <div class="form-group">
-                <label for="exampleInputEmail1">Pottasium</label>
-                <input type="number" class="form-control" name="pottasium" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the value">
+                <label for="potassium" class="form-label">Potassium</label>
+                <input type="number" class="form-control" name="potassium" id="potassium" placeholder="Enter the value">
             </div>
 
             <div class="form-group">
-                <label for="exampleInputEmail1">pH</label>
-                <input type="float" class="form-control" name="ph" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the value">
+                <label for="ph" class="form-label">pH</label>
+                <input type="float" class="form-control" name="ph" id="ph" placeholder="Enter the value">
             </div>
 
             <div class="form-group">
-                <label for="exampleInputEmail1">Rainfall</label>
-                <input type="float" class="form-control" name="rainfall" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the value">
+                <label for="rainfall" class="form-label">Rainfall</label>
+                <input type="float" class="form-control" name="rainfall" id="rainfall" placeholder="Enter the value">
             </div>
 
-            <!-- chnages -->
             <div class="form-group">
-                <label for="State" style="font-size: 17px "><b>State</b></label>
-                <select onchange="print_city('state', this.selectedIndex);" id="sts" name="stt" class="form-control" style="font-weight: bold; color: black;" required></select>
+                <label for="state" class="form-label">State</label>
+                <select onchange="print_city('state', this.selectedIndex);" id="sts" name="stt" class="form-control" required></select>
                 <br />
-                <label for="City" style="font-size: 17px"><b>City</b></label>
-                <select id="state" class="form-control" name="city" style="font-weight: bold; color: black;" required></select>
+                <label for="city" class="form-label">City</label>
+                <select id="state" class="form-control" name="city" required></select>
                 <script language="javascript">
                     print_state("sts");
                 </script>
             </div>
-            <!-- chnages -->
 
             <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-success bg-transparent btn-lg">Predict</button>
+                <button type="submit" class="btn btn-success btn-lg">Predict</button>
             </div>
         </form>
     </div>
 
-
     <!-- footer section start-->
-
     <footer class="page-footer font-small blue pt-5">
-  
+        <p>&copy; 2025 Farm Academy. All rights reserved.</p>
     </footer>
-
     <!-- footer section end -->
 
     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
